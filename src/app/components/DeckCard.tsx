@@ -11,7 +11,7 @@ export function DeckCard({
   deck: Deck;
   saved: boolean;
   progress: Progress;
-  onSave: () => void;
+  onSave?: () => void;
   onStudy: () => void;
 }) {
   const known = deck.words.filter((w) => progress[w.id] === "known").length;
@@ -23,14 +23,16 @@ export function DeckCard({
           <TopicIcon name={deck.icon} size={43} />
         </span>
         <span className="level-badge">{deck.level}</span>
-        <button
-          className={`bookmark icon-button ${saved ? "saved" : ""}`}
-          aria-label={`${saved ? "Unsave" : "Save"} ${deck.title}`}
-          aria-pressed={saved}
-          onClick={onSave}
-        >
-          <Bookmark size={18} fill={saved ? "currentColor" : "none"} />
-        </button>
+        {onSave && (
+          <button
+            className={`bookmark icon-button ${saved ? "saved" : ""}`}
+            aria-label={`${saved ? "Unsave" : "Save"} ${deck.title}`}
+            aria-pressed={saved}
+            onClick={onSave}
+          >
+            <Bookmark size={18} fill={saved ? "currentColor" : "none"} />
+          </button>
+        )}
       </div>
       <div className="deck-content">
         <div className="deck-topic">

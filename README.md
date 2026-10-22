@@ -14,7 +14,7 @@ npm run dev
 Open http://localhost:4200. To try it on a phone on the same Wi-Fi, use `http://YOUR_COMPUTER_LAN_IP:4200`. The dev command listens on all network interfaces. If port 4200 is occupied, use the URL Vite prints.
 
 ```bash
-npm test          # Import/storage/ID regression tests
+npm test          # Import/storage/ID/access-control regression tests
 npm run typecheck
 npm run build    # TypeScript validation + production output in dist/
 npm run preview  # Serve the production build
@@ -23,6 +23,8 @@ npm run format   # Format source and tests
 
 ## First-version features
 
+- Student access by default: browse, search, and study all available starter and custom sets.
+- Admin login with username `admin` and password `admin`. Admins retain the library, My sets, lesson preparation, progress, import, export, and bookmarks. Sign out to return to student access.
 - 12 starter sets and 120 words across CEFR A1–C2, with English, British IPA, Vietnamese meanings, and example sentences.
 - Search by set, topic, English word, or Vietnamese meaning; filter by level/topic; grid/list views and bookmarks.
 - Flashcards with English/phonetics on the front and Vietnamese on the reverse, previous/next, shuffle, browser pronunciation, and “Got it” / “Still learning” grading.
@@ -49,7 +51,9 @@ Sets, bookmarks, and word progress are stored under `lexi-vocabulary-v1` in this
 
 Teacher-selected words retain their source IDs, so learning the same starter word in a custom lesson also counts in the library. Independently imported words have their own progress.
 
-This version has no server, accounts, classroom sharing, or spaced-repetition scheduling. CEFR labels are suggested teaching levels, not an official examination syllabus. Pronunciation uses browser speech synthesis; available voices depend on the browser/OS. The app works with system font fallbacks if Google Fonts is unavailable.
+Admin access is temporary and held in memory: refreshing the page returns to student access. Login uses hard-coded credentials and client-side UI guards only; it does not provide a security boundary or protect data from browser inspection. There is no server authentication or individual student account. Sets and learning progress remain shared in this browser across role changes. Replace this demo login with server authentication and authorization before storing protected data.
+
+This version has no server, classroom sharing, or spaced-repetition scheduling. CEFR labels are suggested teaching levels, not an official examination syllabus. Pronunciation uses browser speech synthesis; available voices depend on the browser/OS. The app works with system font fallbacks if Google Fonts is unavailable.
 
 ## Main files
 

@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -32,7 +39,8 @@ import { Modal } from "./components/Modal";
 import { Prepare } from "./components/Prepare";
 import { Study } from "./components/Study";
 import { TopicIcon } from "./components/Icon";
-type Page = "library" | "sets" | "prepare" | "progress";
+import { Login } from "./components/Login";
+import { canAccessPage, type Page, type Role } from "@/lib/auth";
 const pages = [
   { id: "library" as const, label: "Vocabulary library", icon: BookOpen },
   { id: "sets" as const, label: "My sets", icon: Layers },
@@ -47,11 +55,67 @@ function initialState() {
   }
 }
 export default function App() {
-  const sidebarRef = useRef<HTMLElement>(null);
-  const menuRef = useRef<HTMLButtonElement>(null);
+  const [role, setRole] = useState<Role>("student");
+  const [loginOpen, setLoginOpen] = useState(false);
   const [state, setState] = useState<SavedState>(initialState);
   const [storageError, setStorageError] = useState(false);
-  const [page, setPage] = useState<Page>("library");
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      setStorageError(false);
+    } catch {
+      setStorageError(true);
+    }
+  }, [state]);
+  if (loginOpen) {
+    return (
+      <Login
+        onBack={() => setLoginOpen(false)}
+        onLogin={(nextRole) => {
+          setRole(nextRole);
+          setLoginOpen(false);
+        }}
+      />
+    );
+  }
+  return (
+    <Workspace
+      key={role}
+      role={role}
+      state={state}
+      setState={setState}
+      storageError={storageError}
+      onSignIn={() => setLoginOpen(true)}
+      onSignOut={() => setRole("student")}
+    />
+  );
+}
+function Workspace({
+  role,
+  state,
+  setState,
+  storageError,
+  onSignIn,
+  onSignOut,
+}: {
+  role: Role;
+  state: SavedState;
+  setState: Dispatch<SetStateAction<SavedState>>;
+  storageError: boolean;
+  onSignIn: () => void;
+  onSignOut: () => void;
+}) {
+  const isAdmin = role === "admin";
+  const visiblePages = pages
+    .filter((p) => canAccessPage(role, p.id))
+    .map((p) => ({
+      ...p,
+      label: !isAdmin && p.id === "library" ? "Available sets" : p.label,
+    }));
+  const sidebarRef = useRef<HTMLElement>(null);
+  const menuRef = useRef<HTMLButtonElement>(null);
+  const [requestedPage, setPage] = useState<Page>("library");
+  const page = canAccessPage(role, requestedPage) ? requestedPage : "library";
   const [activeDeck, setActiveDeck] = useState<Deck | null>(null);
   const [query, setQuery] = useState("");
   const [level, setLevel] = useState("All levels");
@@ -62,14 +126,6 @@ export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [toast, setToast] = useState("");
   const [myTab, setMyTab] = useState("all");
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      setStorageError(false);
-    } catch {
-      setStorageError(true);
-    }
-  }, [state]);
   useEffect(() => {
     if (!toast) return;
     const timer = setTimeout(() => setToast(""), 4000);
@@ -144,6 +200,7 @@ export default function App() {
         .includes(query.toLocaleLowerCase()),
   );
   function navigate(next: Page) {
+    if (!canAccessPage(role, next)) return;
     setPage(next);
     setActiveDeck(null);
     setQuery("");
@@ -158,6 +215,7 @@ export default function App() {
     window.scrollTo({ top: 0 });
   }
   function saveDeck(deck: Deck) {
+    if (!isAdmin) return;
     setState((s) => ({ ...s, decks: [...s.decks, deck] }));
     setImportOpen(false);
     navigate("sets");
@@ -165,6 +223,7 @@ export default function App() {
     setToast(`“${deck.title}” is ready to study.`);
   }
   function bookmark(deck: Deck) {
+    if (!isAdmin) return;
     setState((s) => ({
       ...s,
       bookmarks: s.bookmarks.includes(deck.id)
@@ -207,7 +266,7 @@ export default function App() {
         <div className="sidebar-caption">A LITTLE LEARNING, EVERY DAY</div>
         <div className="nav-label">YOUR LEARNING SPACE</div>
         <nav aria-label="Main navigation">
-          {pages.map((p) => (
+          {visiblePages.map((p) => (
             <button
               key={p.id}
               className={`nav-item ${page === p.id ? "active" : ""}`}
@@ -261,7 +320,7 @@ export default function App() {
             <strong>
               {activeDeck
                 ? "Flashcards"
-                : pages.find((p) => p.id === page)?.label}
+                : visiblePages.find((p) => p.id === page)?.label}
             </strong>
           </div>
           <div className="topbar-right">
@@ -269,16 +328,21 @@ export default function App() {
               English <span>↔</span> <span lang="vi">Tiếng Việt</span>
             </span>
             <span className="topbar-divider" />
-            <span className="profile" title="Your local learner profile">
-              L<span />
-            </span>
+            <span className="role-label">{isAdmin ? "Admin" : "Student"}</span>
+            <button
+              className="text-button auth-button"
+              onClick={isAdmin ? onSignOut : onSignIn}
+            >
+              {isAdmin ? "Sign out" : "Admin login"}
+            </button>
           </div>
         </header>
         <main id="main" className="main-content">
           {storageError && (
             <div className="error-box" role="alert">
-              Your browser could not save changes. Keep this tab open and
-              download your sets from My sets before closing it.
+              {isAdmin
+                ? "Your browser could not save changes. Keep this tab open and download your sets from My sets before closing it."
+                : "Your browser could not save your progress. Keep this tab open to continue learning."}
             </div>
           )}
           {activeDeck ? (
@@ -294,9 +358,9 @@ export default function App() {
               }
               onBack={() => setActiveDeck(null)}
             />
-          ) : page === "prepare" ? (
+          ) : isAdmin && page === "prepare" ? (
             <Prepare onSave={saveDeck} />
-          ) : page === "progress" ? (
+          ) : isAdmin && page === "progress" ? (
             <>
               <div className="page-heading">
                 <div>
@@ -414,12 +478,14 @@ export default function App() {
                       : "Find your level, discover new words, and make them yours."}
                   </p>
                 </div>
-                <button
-                  className="button secondary import-top"
-                  onClick={() => setImportOpen(true)}
-                >
-                  <Upload size={17} /> Import vocabulary
-                </button>
+                {isAdmin && (
+                  <button
+                    className="button secondary import-top"
+                    onClick={() => setImportOpen(true)}
+                  >
+                    <Upload size={17} /> Import vocabulary
+                  </button>
+                )}
               </div>
               {page === "library" && (
                 <section className="hero">
@@ -488,59 +554,64 @@ export default function App() {
                     <h2>
                       {page === "sets"
                         ? "My study sets"
-                        : "Explore the vocabulary library"}
+                        : isAdmin
+                          ? "Explore the vocabulary library"
+                          : "Available sets"}
                     </h2>
                     <span className="count-badge">
                       {page === "sets" ? myDecks.length : decks.length} sets
                     </span>
                   </div>
-                  {page === "library" ? (
-                    <button
-                      className="text-button prepare-link"
-                      onClick={() => navigate("prepare")}
-                    >
-                      <GraduationCap size={17} /> Preparing a lesson?{" "}
-                      <ArrowRight size={15} />
-                    </button>
-                  ) : (
-                    <div className="sets-actions">
+                  {isAdmin &&
+                    (page === "library" ? (
                       <button
-                        className="text-button"
-                        onClick={() => {
-                          const content = state.decks
-                            .map((d) =>
-                              d.words
-                                .map((w) =>
-                                  [w.english, w.phonetic, w.vietnamese]
-                                    .map((c) => `"${c.replaceAll('"', '""')}"`)
-                                    .join(","),
-                                )
-                                .join("\n"),
-                            )
-                            .join("\n");
-                          const blob = new Blob(
-                            ["\uFEFFenglish,phonetic,vietnamese\n" + content],
-                            { type: "text/csv;charset=utf-8" },
-                          );
-                          const url = URL.createObjectURL(blob);
-                          const a = document.createElement("a");
-                          a.href = url;
-                          a.download = "lexi-my-vocabulary.csv";
-                          a.click();
-                          URL.revokeObjectURL(url);
-                        }}
-                        disabled={!state.decks.length}
-                      >
-                        Export words
-                      </button>
-                      <button
-                        className="text-button"
+                        className="text-button prepare-link"
                         onClick={() => navigate("prepare")}
                       >
-                        <Plus size={17} /> Create a set
+                        <GraduationCap size={17} /> Preparing a lesson?{" "}
+                        <ArrowRight size={15} />
                       </button>
-                    </div>
-                  )}
+                    ) : (
+                      <div className="sets-actions">
+                        <button
+                          className="text-button"
+                          onClick={() => {
+                            const content = state.decks
+                              .map((d) =>
+                                d.words
+                                  .map((w) =>
+                                    [w.english, w.phonetic, w.vietnamese]
+                                      .map(
+                                        (c) => `"${c.replaceAll('"', '""')}"`,
+                                      )
+                                      .join(","),
+                                  )
+                                  .join("\n"),
+                              )
+                              .join("\n");
+                            const blob = new Blob(
+                              ["\uFEFFenglish,phonetic,vietnamese\n" + content],
+                              { type: "text/csv;charset=utf-8" },
+                            );
+                            const url = URL.createObjectURL(blob);
+                            const a = document.createElement("a");
+                            a.href = url;
+                            a.download = "lexi-my-vocabulary.csv";
+                            a.click();
+                            URL.revokeObjectURL(url);
+                          }}
+                          disabled={!state.decks.length}
+                        >
+                          Export words
+                        </button>
+                        <button
+                          className="text-button"
+                          onClick={() => navigate("prepare")}
+                        >
+                          <Plus size={17} /> Create a set
+                        </button>
+                      </div>
+                    ))}
                 </div>
                 {page === "sets" && (
                   <div className="my-tabs">
@@ -653,7 +724,7 @@ export default function App() {
                         deck={d}
                         progress={state.progress}
                         saved={state.bookmarks.includes(d.id)}
-                        onSave={() => bookmark(d)}
+                        onSave={isAdmin ? () => bookmark(d) : undefined}
                         onStudy={() => study(d)}
                       />
                     ))}
@@ -692,7 +763,7 @@ export default function App() {
                   </div>
                 )}
               </section>
-              {page === "library" && (
+              {isAdmin && page === "library" && (
                 <section className="teacher-banner">
                   <span className="teacher-icon">
                     <GraduationCap size={27} />
@@ -725,7 +796,7 @@ export default function App() {
           )}
         </main>
       </div>
-      {importOpen && (
+      {isAdmin && importOpen && (
         <ImportDialog onClose={() => setImportOpen(false)} onSave={saveDeck} />
       )}
       {helpOpen && (
@@ -746,16 +817,18 @@ export default function App() {
               Use Space to flip and the arrow keys to move when a button is not
               focused.
             </p>
-            <p>
-              <strong>Make it yours.</strong> Bookmark any set, import a CSV/TSV
-              list, or select words in Prepare a lesson. Optional phonetics use
-              the International Phonetic Alphabet (IPA).
-            </p>
+            {isAdmin && (
+              <p>
+                <strong>Make it yours.</strong> Bookmark any set, import a
+                CSV/TSV list, or select words in Prepare a lesson. Optional
+                phonetics use the International Phonetic Alphabet (IPA).
+              </p>
+            )}
             <p>
               <strong>Your own learning space.</strong> Sets and progress stay
               in this browser. They are not synced across devices. Clearing
-              browser data removes them. Export custom words from My sets to
-              keep a copy.
+              browser data removes them.{" "}
+              {isAdmin && "Export custom words from My sets to keep a copy."}
             </p>
           </div>
           <button
