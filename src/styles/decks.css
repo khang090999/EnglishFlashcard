@@ -1,0 +1,225 @@
+.deck-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 19px;
+}
+
+.deck-card {
+	border: 1px solid #e7e5e9;
+	border-radius: 12px;
+	background: white;
+	overflow: hidden;
+	transition:
+		box-shadow 0.2s,
+		border-color 0.2s;
+}
+
+.deck-card:hover {
+	box-shadow: 0 6px 20px #55416d09;
+	border-color: #d7cbe4;
+}
+
+.deck-art {
+	position: relative;
+	height: 111px;
+	margin: 8px 8px 0;
+	border-radius: 7px;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+}
+
+.peach {
+	background: #f8eadd;
+	color: #b98e6b;
+}
+
+.green {
+	background: #eaf0df;
+	color: #8eaa77;
+}
+
+.blue {
+	background: #e2edf5;
+	color: #7b9fb8;
+}
+
+.pink {
+	background: #f7e7e9;
+	color: #bd8a99;
+}
+
+.purple {
+	background: #ede6f7;
+	color: #a28cbd;
+}
+
+.yellow {
+	background: #f8f0d8;
+	color: #bca45e;
+}
+
+.topic-illustration {
+	position: relative;
+	z-index: 1;
+	transform: rotate(-8deg);
+	display: grid;
+	place-items: center;
+	border: 1px solid #ffffff80;
+	background: #ffffff38;
+	border-radius: 17px;
+	width: 65px;
+	height: 65px;
+}
+
+.topic-illustration::before,
+.topic-illustration::after {
+	content: '✦';
+	font-size: 14px;
+	position: absolute;
+	right: -18px;
+	top: 2px;
+	opacity: 0.5;
+}
+
+.topic-illustration::after {
+	inset: auto auto 3px -18px;
+	font-size: 8px;
+}
+
+.art-dots {
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	border: 1px solid currentcolor;
+	border-radius: 50%;
+	opacity: 0.08;
+}
+
+.level-badge {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: #ffffffc7;
+	color: inherit;
+	border-radius: 4px;
+	padding: 4px 7px;
+	font-size: 8px;
+	font-weight: 650;
+}
+
+.icon-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	border-radius: 7px;
+	color: #93879f;
+}
+
+.icon-button:hover:not(:disabled) {
+	background: #f2edf8;
+}
+
+.bookmark {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	width: 29px;
+	height: 29px;
+	color: inherit;
+}
+
+.bookmark:hover {
+	background: #ffffff70 !important;
+}
+
+.bookmark.saved {
+	color: #7960af;
+	background: #ffffffa6;
+}
+
+.deck-content {
+	padding: 17px 17px 13px;
+}
+
+.deck-topic {
+	font-size: 8px;
+	color: #a59bad;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 7px;
+}
+
+.deck-topic > span {
+	font-size: 6px;
+	letter-spacing: 1px;
+	color: #a48ebc;
+}
+
+.deck-title {
+	font-family: Manrope, sans-serif;
+	padding: 0;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	gap: 6px;
+	align-items: center;
+	width: 100%;
+	font-size: 13px;
+	letter-spacing: -0.3px;
+	font-weight: 750;
+	line-height: 1.5;
+}
+
+.deck-title svg {
+	color: #b8afc2;
+	width: 15px;
+}
+
+.deck-title:hover {
+	color: var(--purple);
+}
+
+.deck-content > p {
+	font-size: 9px;
+	color: #a19aa9;
+	line-height: 1.7;
+	min-height: 31px;
+	margin-top: 6px;
+}
+
+.deck-bottom {
+	border-top: 1px solid #f0edf3;
+	margin-top: 13px;
+	padding-top: 12px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 8px;
+	color: #a197ad;
+}
+
+.deck-bottom > span {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.deck-bottom .known-caption {
+	color: #87a178;
+}
+
+.card-progress {
+	height: 3px;
+	background: #f0eaf6;
+	margin-top: 10px;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.card-progress > span {
+	display: block;
+	background: #a6bd93;
+	height: 100%;
+}

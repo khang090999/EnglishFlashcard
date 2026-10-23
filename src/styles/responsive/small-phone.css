@@ -1,0 +1,41 @@
+@media (width <= 360px) {
+	.hero-copy {
+		width: 100%;
+	}
+
+	.hero-art {
+		display: none;
+	}
+
+	.hero h2 {
+		font-size: 29px;
+	}
+
+	.hero p {
+		max-width: none;
+		font-size: 12px;
+	}
+
+	.hero-footnote {
+		max-width: none;
+		font-size: 9px;
+	}
+
+	.hero .hero-tag {
+		font-size: 7px;
+	}
+
+	.hero {
+		min-height: 0;
+	}
+
+	.language-pair {
+		white-space: nowrap;
+		font-size: 8px;
+		gap: 4px;
+	}
+
+	.breadcrumbs {
+		font-size: 10px;
+	}
+}

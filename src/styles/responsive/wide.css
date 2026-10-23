@@ -1,0 +1,51 @@
+@media (width >= 1450px) {
+	.main-content {
+		padding: 42px 55px 22px;
+	}
+
+	.hero {
+		min-height: 325px;
+		padding: 36px 43px;
+	}
+
+	.hero h2 {
+		font-size: 40px;
+	}
+
+	.hero-art {
+		right: 8%;
+		width: 38%;
+	}
+
+	.deck-art {
+		height: 135px;
+	}
+
+	.deck-title {
+		font-size: 15px;
+	}
+
+	.deck-content > p {
+		font-size: 11px;
+	}
+
+	.deck-topic,
+	.deck-bottom {
+		font-size: 10px;
+	}
+
+	.deck-content {
+		padding: 19px;
+	}
+
+	.level-pills button > span {
+		display: inline;
+		margin-left: 7px;
+		font-size: 8px;
+		opacity: 0.7;
+	}
+
+	h1 {
+		font-size: 28px;
+	}
+}

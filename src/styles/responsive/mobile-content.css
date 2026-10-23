@@ -1,0 +1,203 @@
+@media (width <= 720px) {
+	.level-pills button {
+		min-height: 34px;
+		padding: 7px 11px;
+	}
+
+	.level-filter > span {
+		font-size: 7px;
+	}
+
+	.search input {
+		font-size: 11px;
+	}
+
+	.topic-filter {
+		padding: 0 10px;
+	}
+
+	.topic-filter > svg:first-child {
+		display: none;
+	}
+
+	.view-switch {
+		display: none;
+	}
+
+	.teacher-banner h3 {
+		font-size: 12px;
+	}
+
+	.teacher-banner p {
+		font-size: 10px;
+		line-height: 1.7;
+	}
+
+	.teacher-banner {
+		gap: 13px;
+	}
+
+	.teacher-banner > div {
+		flex: 1;
+		min-width: 180px;
+	}
+
+	.teacher-banner > .button {
+		margin-left: 57px;
+	}
+
+	.page-footer {
+		gap: 15px;
+		font-size: 7px;
+		align-items: flex-start;
+	}
+
+	.page-footer > span {
+		line-height: 1.6;
+	}
+
+	.page-footer > span:last-child {
+		white-space: nowrap;
+	}
+
+	.toast {
+		left: 50%;
+		font-size: 11px;
+		width: max-content;
+	}
+
+	.selection-panel {
+		padding: 23px;
+	}
+
+	.word-bank {
+		padding: 20px;
+	}
+
+	.stats-row {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 10px;
+	}
+
+	.stat {
+		flex-direction: column;
+		padding: 15px;
+		gap: 10px;
+	}
+
+	.stat > div {
+		gap: 4px;
+	}
+
+	.stat strong {
+		font-size: 25px;
+	}
+
+	.stat div > span {
+		font-size: 9px;
+	}
+
+	.heading-icon {
+		display: none;
+	}
+
+	.study-header h1 {
+		font-size: 23px;
+	}
+
+	.study-header {
+		gap: 13px;
+	}
+
+	.study-icon {
+		width: 54px;
+		height: 54px;
+		border-radius: 12px;
+	}
+
+	.study-header .eyebrow {
+		font-size: 7px;
+	}
+
+	.study-page .back-link {
+		margin-bottom: 22px;
+		min-height: 25px;
+	}
+
+	.flashcard-word {
+		font-size: 39px;
+	}
+
+	.card-flip-target {
+		min-height: 330px;
+		padding: 30px;
+	}
+
+	.flashcard {
+		min-height: 330px;
+	}
+
+	.is-flipped .flashcard-word {
+		font-size: 29px;
+	}
+
+	.grade-actions .button {
+		min-height: 48px;
+	}
+
+	.keyboard-help {
+		display: none;
+	}
+
+	.flip-hint > span {
+		display: none;
+	}
+
+	.card-navigation .icon-button {
+		width: 43px;
+		height: 43px;
+	}
+
+	.modal {
+		padding: 22px;
+		max-height: calc(100dvh - 24px);
+	}
+
+	.modal h2 {
+		font-size: 20px;
+	}
+
+	.modal-head p {
+		font-size: 11px;
+	}
+
+	.modal .button {
+		font-size: 11px;
+	}
+
+	.modal-footer .text-button {
+		font-size: 10px;
+	}
+
+	.modal .icon-button {
+		width: 40px;
+		height: 40px;
+	}
+
+	.completion h2 {
+		font-size: 24px;
+	}
+
+	.completion-actions {
+		flex-wrap: wrap;
+	}
+
+	.preview-rows > div {
+		font-size: 10px;
+		gap: 8px;
+	}
+
+	.help-button {
+		min-height: 46px;
+	}
+}

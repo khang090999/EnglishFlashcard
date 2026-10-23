@@ -1,0 +1,85 @@
+@media (width <= 450px) {
+	.page-heading p {
+		font-size: 12px;
+	}
+
+	.hero p {
+		font-size: 10px;
+	}
+
+	.hero .hero-tag {
+		font-size: 6.5px;
+	}
+
+	.hero-footnote {
+		font-size: 7px;
+	}
+
+	.deck-title {
+		font-size: 13px;
+		min-height: 39px;
+	}
+
+	.deck-content > p {
+		font-size: 10px;
+		min-height: 51px;
+	}
+
+	.deck-topic {
+		font-size: 9px;
+	}
+
+	.deck-bottom {
+		font-size: 9px;
+	}
+
+	.deck-bottom .known-caption {
+		font-size: 8px;
+	}
+
+	.results-caption {
+		font-size: 10px;
+		line-height: 1.6;
+	}
+
+	.results-caption > span:last-child {
+		display: none;
+	}
+
+	.level-pills button {
+		font-size: 10px;
+		padding: 7px 9px;
+	}
+
+	.teacher-banner h3 {
+		font-size: 12px;
+	}
+
+	.teacher-banner p {
+		font-size: 10px;
+	}
+
+	.search > input:not([type='checkbox'], [type='file']) {
+		font-size: 11px;
+	}
+
+	.word-row strong {
+		font-size: 13px;
+	}
+
+	.word-row small {
+		font-size: 11px;
+	}
+
+	.word-row > span:last-child {
+		font-size: 12px;
+	}
+
+	.study-tip {
+		font-size: 11px;
+	}
+
+	.word-example {
+		font-size: 12px;
+	}
+}

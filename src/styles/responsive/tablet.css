@@ -1,0 +1,177 @@
+@media (width <= 950px) {
+	.sidebar {
+		width: 190px;
+	}
+
+	.main-shell {
+		margin-left: 190px;
+	}
+
+	.brand {
+		font-size: 32px;
+	}
+
+	.sidebar-caption {
+		font-size: 6.5px;
+		letter-spacing: 1px;
+	}
+
+	.nav-item {
+		font-size: 10px;
+		gap: 10px;
+	}
+
+	.nav-label {
+		font-size: 8px;
+	}
+
+	.grow-card {
+		padding: 16px 12px;
+	}
+
+	.grow-card h3 {
+		font-size: 10px;
+	}
+
+	.grow-card p {
+		font-size: 9px;
+	}
+
+	.local-note {
+		font-size: 7px;
+	}
+
+	.page-heading {
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	.page-heading .import-top {
+		margin-top: -2px;
+	}
+
+	.hero-art {
+		right: 0%;
+		width: 39%;
+		opacity: 0.9;
+	}
+
+	.hero-copy {
+		width: 63%;
+	}
+
+	.hero h2 {
+		font-size: 30px;
+	}
+
+	.hero p {
+		font-size: 10px;
+	}
+
+	.floating-card {
+		width: 125px;
+		height: 190px;
+		top: 65px;
+	}
+
+	.rear-card {
+		transform: translate(37px, -8px) rotate(15deg);
+	}
+
+	.front-card {
+		transform: translate(-5px, 5px) rotate(-12deg);
+	}
+
+	.front-card > strong {
+		font-size: 24px;
+	}
+
+	.front-card > small {
+		font-size: 9px;
+	}
+
+	.art-card-bottom {
+		font-size: 5px;
+	}
+
+	.hero-art .star-one {
+		left: 0;
+	}
+
+	.hero-art .star-two {
+		right: 2%;
+		font-size: 27px;
+	}
+
+	.deck-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.deck-title {
+		font-size: 14px;
+	}
+
+	.deck-content {
+		padding: 16px;
+	}
+
+	.deck-content > p {
+		font-size: 10px;
+	}
+
+	.section-head {
+		flex-wrap: wrap;
+		gap: 11px;
+	}
+
+	.section-head h2 {
+		font-size: 16px;
+	}
+
+	.teacher-banner {
+		flex-wrap: wrap;
+		padding: 18px;
+	}
+
+	.teacher-banner > .button {
+		margin-left: 60px;
+	}
+
+	.teacher-banner h3 {
+		font-size: 11px;
+	}
+
+	.prepare-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.selection-panel {
+		position: static;
+	}
+
+	.stats-row {
+		gap: 10px;
+	}
+
+	.stat {
+		padding: 17px 12px;
+		gap: 12px;
+	}
+
+	.stat-icon {
+		width: 35px;
+		height: 35px;
+	}
+
+	.stat strong {
+		font-size: 22px;
+	}
+
+	.stat div > span {
+		font-size: 9px;
+	}
+
+	.toast {
+		left: calc(50% + 95px);
+	}
+}

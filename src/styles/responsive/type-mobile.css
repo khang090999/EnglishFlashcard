@@ -1,0 +1,79 @@
+@media (width <= 720px) {
+	.sidebar {
+		visibility: hidden;
+	}
+
+	.sidebar.open {
+		visibility: visible;
+	}
+
+	.nav-item {
+		min-height: 47px;
+		font-size: 13px;
+	}
+
+	.level-pills button {
+		min-height: 40px;
+	}
+
+	.level-badge {
+		font-size: 9px;
+	}
+
+	.eyebrow {
+		font-size: 8px;
+	}
+
+	.hero p {
+		font-size: 11px;
+	}
+
+	.hero-tag {
+		font-size: 8px;
+	}
+
+	.hero-footnote {
+		font-size: 8px;
+	}
+
+	.language-pair {
+		font-size: 10px;
+	}
+
+	.breadcrumbs {
+		font-size: 11px;
+	}
+
+	.hero .button {
+		font-size: 11px;
+	}
+
+	.word-row {
+		min-height: 61px;
+	}
+
+	.flashcard-word {
+		max-width: 100%;
+	}
+
+	.import-label label {
+		font-size: 12px;
+	}
+
+	.modal textarea {
+		font-size: 14px;
+	}
+
+	.modal label > input:not([type='checkbox']),
+	.modal label > select {
+		font-size: 14px;
+	}
+
+	.text-button {
+		min-height: 30px;
+	}
+
+	.modal .field-help {
+		font-size: 11px;
+	}
+}

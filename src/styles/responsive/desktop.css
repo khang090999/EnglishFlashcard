@@ -1,0 +1,86 @@
+@media (width <= 1150px) {
+	.sidebar {
+		width: 212px;
+		padding-left: 13px;
+		padding-right: 13px;
+	}
+
+	.main-shell {
+		margin-left: 212px;
+	}
+
+	.main-content {
+		padding: 28px 28px 18px;
+	}
+
+	.topbar {
+		padding: 0 28px;
+	}
+
+	.page-heading {
+		align-items: flex-start;
+	}
+
+	.page-heading h1 {
+		font-size: 22px;
+	}
+
+	.import-top {
+		padding: 9px 11px;
+		font-size: 9px;
+		gap: 7px;
+	}
+
+	.hero {
+		padding: 29px;
+		min-height: 305px;
+	}
+
+	.hero h2 {
+		font-size: 33px;
+	}
+
+	.hero-art {
+		right: 2%;
+		width: 40%;
+	}
+
+	.floating-card {
+		width: 145px;
+		height: 205px;
+	}
+
+	.hero-copy {
+		width: 60%;
+	}
+
+	.deck-grid {
+		gap: 14px;
+	}
+
+	.deck-content {
+		padding: 13px;
+	}
+
+	.deck-title {
+		font-size: 12px;
+	}
+
+	.prepare-layout {
+		grid-template-columns: minmax(0, 1fr) 240px;
+		gap: 16px;
+	}
+
+	.word-bank,
+	.selection-panel {
+		padding: 17px;
+	}
+
+	.toast {
+		left: calc(50% + 106px);
+	}
+
+	.prepare-link {
+		font-size: 9px;
+	}
+}
