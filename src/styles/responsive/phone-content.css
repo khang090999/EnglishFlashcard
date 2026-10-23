@@ -1,0 +1,210 @@
+@media (width <= 450px) {
+	.deck-content {
+		padding: 12px;
+	}
+
+	.deck-title {
+		font-size: 12px;
+		line-height: 1.5;
+		min-height: 36px;
+		align-items: flex-start;
+	}
+
+	.deck-title svg {
+		display: none;
+	}
+
+	.deck-topic {
+		font-size: 7px;
+		min-height: 10px;
+		margin-bottom: 7px;
+	}
+
+	.deck-topic > span {
+		font-size: 5px;
+	}
+
+	.deck-content > p {
+		font-size: 8px;
+		min-height: 41px;
+		line-height: 1.7;
+		margin-top: 4px;
+	}
+
+	.deck-bottom {
+		font-size: 7px;
+		padding-top: 10px;
+		margin-top: 10px;
+	}
+
+	.deck-bottom svg {
+		width: 12px;
+	}
+
+	.deck-bottom > span {
+		gap: 3px;
+	}
+
+	.deck-bottom .tiny-arrow {
+		margin: 0 1px;
+	}
+
+	.bookmark {
+		width: 32px;
+		height: 32px;
+		top: 3px;
+		right: 3px;
+	}
+
+	.level-badge {
+		top: 9px;
+		left: 8px;
+		font-size: 7px;
+	}
+
+	.teacher-banner {
+		padding: 18px 16px;
+		margin-top: 23px;
+	}
+
+	.teacher-banner h3 {
+		font-size: 11px;
+		line-height: 1.7;
+	}
+
+	.teacher-banner p {
+		font-size: 9px;
+	}
+
+	.teacher-banner > .button {
+		font-size: 10px;
+		min-height: 40px;
+	}
+
+	.page-footer > span:last-child {
+		display: none;
+	}
+
+	.sets-actions {
+		gap: 15px;
+	}
+
+	.sets-actions .text-button {
+		font-size: 9px;
+	}
+
+	.my-tabs {
+		gap: 22px;
+	}
+
+	.my-tabs > button {
+		font-size: 10px;
+	}
+
+	.stats-row {
+		gap: 8px;
+	}
+
+	.stat {
+		padding: 13px 10px;
+	}
+
+	.stat div > span {
+		font-size: 8px;
+	}
+
+	.stat-icon {
+		width: 31px;
+		height: 31px;
+	}
+
+	.stat-icon svg {
+		width: 18px;
+	}
+
+	.progress-panel {
+		padding: 20px 17px;
+	}
+
+	.progress-panel .section-head h2 {
+		font-size: 14px;
+	}
+
+	.level-progress {
+		gap: 12px;
+	}
+
+	.level-progress strong {
+		font-size: 10px;
+	}
+
+	.progress-panel .muted {
+		font-size: 9px;
+	}
+
+	.word-bank {
+		padding: 17px 13px;
+	}
+
+	.word-row {
+		gap: 9px;
+	}
+
+	.word-row strong {
+		font-size: 11px;
+	}
+
+	.word-row > span:last-child {
+		font-size: 10px;
+	}
+
+	.word-row small {
+		font-size: 9px;
+	}
+
+	.word-row input {
+		min-width: 18px;
+		min-height: 18px;
+	}
+
+	.study-header h1 {
+		font-size: 21px;
+	}
+
+	.study-icon {
+		width: 47px;
+		height: 47px;
+	}
+
+	.study-icon svg {
+		width: 25px;
+	}
+
+	.study-header p {
+		font-size: 9px;
+	}
+
+	.flashcard-word {
+		font-size: 34px;
+	}
+
+	.is-flipped .flashcard-word {
+		font-size: 27px;
+	}
+
+	.card-flip-target {
+		padding: 30px 21px;
+	}
+
+	.phonetic {
+		font-size: 15px;
+	}
+
+	.word-example {
+		font-size: 11px;
+	}
+
+	.translation-hint {
+		font-size: 12px;
+	}
+}

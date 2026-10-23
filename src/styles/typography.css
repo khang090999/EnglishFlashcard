@@ -1,0 +1,217 @@
+/* Keep secondary text readable and inputs consistent at all breakpoints. */
+.sidebar-caption,
+.nav-label {
+	color: #817889;
+}
+
+.nav-item {
+	font-size: 13px;
+}
+
+.grow-card p {
+	font-size: 11px;
+	color: #777a69;
+}
+
+.grow-card h3 {
+	font-size: 13px;
+}
+
+.help-button {
+	font-size: 12px;
+}
+
+.breadcrumbs,
+.language-pair {
+	font-size: 12px;
+}
+
+.eyebrow {
+	font-size: 9px;
+	color: #877a96;
+}
+
+.page-heading p {
+	font-size: 13px;
+	color: #82778e;
+}
+
+.button {
+	font-size: 12px;
+}
+
+.hero-tag {
+	font-size: 9px;
+}
+
+.hero p {
+	font-size: 13px;
+	color: #81708f;
+}
+
+.hero .button {
+	font-size: 12px;
+}
+
+.hero-footnote {
+	font-size: 10px;
+	color: #918099;
+}
+
+.text-button {
+	font-size: 11px;
+}
+
+.search > input:not([type='checkbox'], [type='file']) {
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	padding: 12px 0;
+	background: transparent;
+	font-size: 12px;
+	outline: none;
+}
+
+.search > input::placeholder {
+	color: #94879f;
+}
+
+.topic-filter > select {
+	font-size: 11px;
+}
+
+.level-filter > span {
+	font-size: 9px;
+	color: #887a97;
+}
+
+.level-pills button {
+	font-size: 11px;
+}
+
+.results-caption {
+	font-size: 11px;
+	color: #93849f;
+}
+
+.results-caption > span:last-child {
+	font-size: 8px;
+}
+
+.deck-topic {
+	font-size: 10px;
+	color: #8e7c9b;
+}
+
+.deck-title {
+	font-size: 15px;
+}
+
+.deck-content > p {
+	font-size: 11px;
+	color: #94849f;
+	min-height: 38px;
+}
+
+.deck-bottom {
+	font-size: 10px;
+	color: #8f7b9f;
+}
+
+.level-badge {
+	font-size: 10px;
+}
+
+.count-badge {
+	font-size: 10px;
+}
+
+.teacher-banner h3 {
+	font-size: 13px;
+}
+
+.teacher-banner p {
+	font-size: 11px;
+	color: #8d7b99;
+}
+
+.teacher-banner > .button {
+	font-size: 11px;
+}
+
+.page-footer {
+	font-size: 9px;
+	color: #998ba6;
+}
+
+.field-help {
+	color: #8e7b9c;
+}
+
+.word-row strong {
+	font-size: 14px;
+}
+
+.word-row small {
+	font-size: 12px;
+}
+
+.word-row > span:last-child {
+	font-size: 13px;
+}
+
+.word-list-toolbar {
+	font-size: 11px;
+}
+
+.level-tabs button {
+	min-height: 42px;
+}
+
+.selection-panel > p {
+	font-size: 12px;
+}
+
+.selection-placeholder {
+	font-size: 12px;
+}
+
+.selection-count {
+	font-size: 11px;
+}
+
+.selected-words button {
+	font-size: 11px;
+	min-height: 30px;
+}
+
+.flip-hint {
+	color: #92809f;
+}
+
+.word-example {
+	font-size: 14px;
+	color: #8a7598;
+}
+
+.phonetic {
+	color: #9277a3;
+}
+
+.translation-hint {
+	color: #8f74a0;
+}
+
+.card-language {
+	color: #9279a2;
+}
+
+.study-tip {
+	font-size: 12px;
+	color: #95809f;
+}
+
+.keyboard-help {
+	font-size: 11px;
+	color: #9a86a7;
+}

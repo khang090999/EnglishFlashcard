@@ -4,4 +4,6 @@ dist/
 .env*
 .codex/
 .agents/
-docs/superpowers/
+docs/superpowers/*
+.ai/*
+AGENTS.md

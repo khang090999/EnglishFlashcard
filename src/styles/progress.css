@@ -1,0 +1,95 @@
+.stats-row {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+	margin: 30px 0;
+}
+
+.stat {
+	display: flex;
+	gap: 19px;
+	padding: 24px;
+	background: #fff;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+}
+
+.stat-icon {
+	width: 46px;
+	height: 46px;
+	display: grid;
+	place-items: center;
+	border-radius: 12px;
+}
+
+.stat > div {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.stat strong {
+	font-size: 25px;
+	font-family: Manrope, sans-serif;
+}
+
+.stat div > span {
+	font-size: 10px;
+	color: #9c91a6;
+}
+
+.progress-panel {
+	background: white;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 25px;
+}
+
+.level-progress {
+	display: flex;
+	align-items: center;
+	gap: 17px;
+	margin: 21px 0;
+}
+
+.level-chip {
+	background: #f0eaf8;
+	color: #9580b2;
+	padding: 12px;
+	font-size: 11px;
+	border-radius: 8px;
+}
+
+.level-progress > div {
+	flex: 1;
+}
+
+.level-progress strong {
+	font-size: 11px;
+	font-weight: 500;
+}
+
+.level-progress > span:last-child {
+	font-size: 11px;
+	color: #a196ae;
+	min-width: 52px;
+	text-align: right;
+}
+
+.progress-track {
+	height: 6px;
+	background: #f3f0f6;
+	border-radius: 4px;
+	margin-top: 8px;
+	overflow: hidden;
+}
+
+.progress-track > span {
+	display: block;
+	background: #b3a0d7;
+	height: 100%;
+}
+
+.progress-sets-heading {
+	margin-top: 30px;
+}

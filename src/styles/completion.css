@@ -1,0 +1,65 @@
+.completion {
+	text-align: center;
+	background: white;
+	border: 1px solid #e8dfef;
+	border-radius: 18px;
+	padding: 45px 25px;
+}
+
+.completion-icon {
+	background: #f0e8fb;
+	color: #b89dce;
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	display: grid;
+	place-items: center;
+	margin: 0 auto 25px;
+}
+
+.completion h2 {
+	font-size: 28px;
+	color: #81708f;
+	letter-spacing: -1px;
+	margin: 14px 0;
+}
+
+.completion > p {
+	font-size: 12px;
+	color: #ad9fba;
+}
+
+.completion-stats {
+	display: flex;
+	justify-content: center;
+	gap: 65px;
+	margin: 30px 0;
+}
+
+.completion-stats > div {
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+}
+
+.completion-stats strong {
+	font-size: 30px;
+	font-family: Manrope, sans-serif;
+	color: #9c83b5;
+}
+
+.completion-stats span {
+	font-size: 11px;
+	color: #b3a2c0;
+}
+
+.completion-actions {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	margin: 25px 0;
+}
+
+.completion > .text-button {
+	margin-top: 5px;
+}

@@ -1,0 +1,77 @@
+@media (width <= 450px) {
+	.grade-actions {
+		gap: 10px;
+	}
+
+	.grade-actions .button {
+		font-size: 11px;
+		padding: 12px;
+	}
+
+	.study-tip {
+		font-size: 9px;
+		line-height: 1.8;
+	}
+
+	.form-row {
+		grid-template-columns: 1fr 85px;
+		gap: 10px;
+	}
+
+	.modal {
+		padding: 20px 17px;
+	}
+
+	.modal h2 {
+		font-size: 19px;
+	}
+
+	.modal-head {
+		gap: 8px;
+	}
+
+	.modal-footer {
+		gap: 10px;
+	}
+
+	.modal-footer .button {
+		font-size: 10px;
+		padding: 11px 13px;
+	}
+
+	.preview-rows > div {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.preview-rows > div > span:nth-child(2) {
+		display: none;
+	}
+
+	.list-view .deck-art {
+		width: 93px;
+	}
+
+	.list-view .deck-title {
+		min-height: 0;
+	}
+
+	.list-view .deck-content > p {
+		min-height: 0;
+	}
+
+	.list-view .deck-bottom {
+		margin-top: 8px;
+	}
+
+	.completion {
+		padding: 35px 20px;
+	}
+
+	.completion h2 {
+		font-size: 22px;
+	}
+
+	.completion > p {
+		line-height: 1.7;
+	}
+}
